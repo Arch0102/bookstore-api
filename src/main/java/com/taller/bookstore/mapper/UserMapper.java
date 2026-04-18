@@ -14,7 +14,7 @@ public class UserMapper {
                 .name(request.getName())
                 .email(request.getEmail())
                 .password(encodedPassword)
-                .role(Role.ROLE_USER)
+                .role(request.getRole() != null ? request.getRole() : Role.ROLE_USER)
                 .build();
     }
 
