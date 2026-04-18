@@ -18,9 +18,9 @@ spring:
 
 app:
   jwt:
-    secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+    secret: dGFsbGVyQm9va3N0b3JlU2VjcmV0S2V5MjAyNFN1cGVyU2VjdXJlSldUU2lnbmluZ0tleQ==
     expiration: 86400000
 
 server:
   servlet:
-    context-path: /api/v1
+    #context-path: /api/v1
