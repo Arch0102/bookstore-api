@@ -41,6 +41,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 UserDetails userDetails = userDetailsService.loadUserByUsername(userEmail);
 
                 if (jwtService.isTokenValid(jwt, userDetails)) {
+                    System.out.println(">>> AUTHORITIES: " + userDetails.getAuthorities());
+                    System.out.println(">>> EMAIL: " + userDetails.getUsername());
+
                     UsernamePasswordAuthenticationToken authToken =
                             new UsernamePasswordAuthenticationToken(
                                     userDetails, null, userDetails.getAuthorities());
@@ -49,7 +52,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 }
             }
         } catch (Exception e) {
-            // Token inválido o expirado — simplemente continúa sin autenticar
+            System.out.println(">>> EXCEPCION EN FILTRO: " + e.getMessage());
             SecurityContextHolder.clearContext();
         }
 
